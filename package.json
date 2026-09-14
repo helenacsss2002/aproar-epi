@@ -1,13 +1,13 @@
 {
   "name": "aproar-epi-fardamento",
   "private": true,
-  "version": "12.0.0",
+  "version": "13.0.0",
   "type": "module",
   "engines": {
     "node": ">=20"
   },
   "scripts": {
-    "build": "node scripts/patch-system.mjs && node scripts/patch-v11.mjs && node scripts/patch-v12.mjs"
+    "build": "node scripts/patch-system.mjs && node scripts/patch-v11.mjs && node scripts/patch-v12.mjs && node scripts/patch-v13.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0"
