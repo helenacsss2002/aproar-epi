@@ -1,0 +1,12 @@
+{
+  "name": "aproar-epi-fardamento",
+  "private": true,
+  "version": "9.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0"
+  }
+}
