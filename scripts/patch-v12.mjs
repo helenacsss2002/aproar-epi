@@ -64,7 +64,14 @@ for(const path of paths){
   html=html.replace(/Termo de desconto \/ ocorrência/g,'Ocorrência de não devolução de EPI/fardamento');
   html=html.replace(/Visualizar termo de desconto/g,'Visualizar ocorrência de não devolução');
   html=html.replace(/Abrir termo de desconto/g,'Abrir ocorrência de não devolução');
-  html=html.replace('</body>',hotfix+'\n</body>');
+
+  // Importante: usar o ÚLTIMO </body> do documento. Existem strings HTML de termos
+  // dentro do JavaScript que também contêm </body> e não podem receber o hotfix.
+  const lower=html.toLowerCase();
+  const idx=lower.lastIndexOf('</body>');
+  if(idx<0) throw new Error('Tag </body> final não encontrada em '+path);
+  html=html.slice(0,idx)+hotfix+'\n'+html.slice(idx);
+
   writeFileSync(path,html,'utf8');
   console.log('patched v12',path);
 }
